@@ -1,15 +1,14 @@
-package jogo;
+package modelos;
 
 public class Personagem {
     private String nome;
     private int vida;
-    private int mana;
     private Arma arma;
+    private Armadura armadura;
 
     public Personagem(String nome) {
         this.nome = nome;
         this.vida = 100;
-        this.mana = 100;
     }
 
     public String getNome() {
@@ -28,14 +27,6 @@ public class Personagem {
         this.vida = vida;
     }
 
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
     public Arma getArma() {
         return arma;
     }
@@ -44,8 +35,16 @@ public class Personagem {
         this.arma = arma;
     }
 
+    public void setArmadura(Armadura armadura) {
+        this.armadura = armadura;
+    }
+
+    public Armadura getArmadura() {
+        return armadura;
+    }
+
     public void receberDano(int dano) {
-        this.vida -= dano;
+        this.vida -= dano - armadura.getProtecao();
         System.out.printf("%s recebeu dano de %d (Vida: %d)%n",
                 this.getNome(), dano, this.getVida());
     }

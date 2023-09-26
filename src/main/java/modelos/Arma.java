@@ -1,9 +1,10 @@
-package jogo;
+package modelos;
 
 public class Arma {
     private String nome;
     private int dano;
     private int mana;
+    private String tipo;
 
 
 
@@ -35,5 +36,13 @@ public class Arma {
 
     public void setMana(int mana) {
         this.mana = mana;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
