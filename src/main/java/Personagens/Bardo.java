@@ -11,9 +11,9 @@ public class Bardo extends Personagem {
     }
 
     @Override
-    public void atacar(Personagem outro) {
-        System.out.printf("%s atacou %s com %s%n",
-                this.getNome(), outro.getNome(), getArma().getNome());
+    public void atacar(Boss outro) {
+        System.out.printf("%s Ta tocando com %s e causando um atodoarmento em %s%n",
+                this.getNome(), getArma().getNome(), outro.getNome());
         outro.receberDano(getArma().getDano() + atordoamento);
     }
 
@@ -24,4 +24,6 @@ public class Bardo extends Personagem {
         System.out.printf("%s recebeu dano de %d (Vida: %d)%n",
                 this.getNome(), dano, this.getVida());
     }
+
+
 }

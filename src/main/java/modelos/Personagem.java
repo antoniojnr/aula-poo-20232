@@ -1,5 +1,8 @@
 package modelos;
 
+import Personagens.Bardo;
+import Personagens.Boss;
+
 public class Personagem {
     private String nome;
     private int vida;
@@ -49,7 +52,7 @@ public class Personagem {
                 this.getNome(), dano, this.getVida());
     }
 
-    public void atacar(Personagem outro) {
+    public void atacar(Boss outro) {
         if (arma == null) {
             System.out.printf("%s atacou %s com a mão%n",
                     this.getNome(), outro.getNome());
@@ -66,5 +69,9 @@ public class Personagem {
         this.setVida(this.getVida() + pocao.getCura());
         System.out.printf("%s tomou %s e recuperou %d pontos de vida.%n",
                 this.getNome(), pocao.getNome(), pocao.getCura());
+    }
+
+    public void pedirBardoTocar(Bardo bardo, Boss personagem){
+        bardo.atacar(personagem);
     }
 }
