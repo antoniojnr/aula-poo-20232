@@ -70,8 +70,4 @@ public class Personagem {
         System.out.printf("%s tomou %s e recuperou %d pontos de vida.%n",
                 this.getNome(), pocao.getNome(), pocao.getCura());
     }
-
-    public void pedirBardoTocar(Bardo bardo, Boss personagem){
-        bardo.atacar(personagem);
-    }
 }

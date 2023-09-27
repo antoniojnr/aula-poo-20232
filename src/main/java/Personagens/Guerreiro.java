@@ -24,11 +24,10 @@ public class Guerreiro extends Personagem {
         super.setArma(arma);
     }
 
-    @Override
     public void pedirBardoTocar(Bardo bardo, Boss personagem) {
         this.forca += 5;
         setVida(getVida() + 10);
-        super.pedirBardoTocar(bardo, personagem);
+        bardo.atacar(personagem);
     }
 
     public void bardoPara() {
