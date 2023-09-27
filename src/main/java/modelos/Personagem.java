@@ -7,7 +7,9 @@ public abstract class Personagem {
     private String nome;
     private int vida;
     private Arma arma;
+    private Bardo bardo;
     private Armadura armadura;
+
 
     public Personagem(String nome) {
         this.nome = nome;
@@ -46,6 +48,14 @@ public abstract class Personagem {
         return armadura;
     }
 
+    public Bardo getBardo() {
+        return bardo;
+    }
+
+    public void setBardo(Bardo bardo) {
+        this.bardo = bardo;
+    }
+
     public void receberDano(int dano) {
         this.vida -= dano - armadura.getProtecao();
         System.out.printf("%s recebeu dano de %d (Vida: %d)%n",
@@ -69,5 +79,10 @@ public abstract class Personagem {
         this.setVida(this.getVida() + pocao.getCura());
         System.out.printf("%s tomou %s e recuperou %d pontos de vida.%n",
                 this.getNome(), pocao.getNome(), pocao.getCura());
+    }
+
+    public void quebrarCaixa(Caixa caixa){
+        this.bardo.addPocao(caixa.getItem());
+        System.out.printf("%s quebrou a caixa e pegou %s.%n",this.getNome(), caixa.getItem().getNome());
     }
 }

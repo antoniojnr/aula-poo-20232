@@ -13,14 +13,6 @@ public class Guerreiro extends Personagem {
         this.forca = 10;
     }
 
-    public Bardo getBardo() {
-        return bardo;
-    }
-
-    public void setBardo(Bardo bardo) {
-        this.bardo = bardo;
-    }
-
     public int getForca() {
         return forca;
     }
