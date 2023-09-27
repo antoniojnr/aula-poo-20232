@@ -6,14 +6,23 @@ import modelos.Personagem;
 public class Guerreiro extends Personagem {
 
     private int forca;
-
-    public int getForca() {
-        return forca;
-    }
+    public Bardo bardo;
 
     public Guerreiro(String nome) {
         super(nome);
         this.forca = 10;
+    }
+
+    public Bardo getBardo() {
+        return bardo;
+    }
+
+    public void setBardo(Bardo bardo) {
+        this.bardo = bardo;
+    }
+
+    public int getForca() {
+        return forca;
     }
 
     @Override

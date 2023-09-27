@@ -3,7 +3,7 @@ package modelos;
 import Personagens.Bardo;
 import Personagens.Boss;
 
-public class Personagem {
+public abstract class Personagem {
     private String nome;
     private int vida;
     private Arma arma;
