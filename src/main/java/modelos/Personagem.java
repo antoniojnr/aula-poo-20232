@@ -85,4 +85,9 @@ public abstract class Personagem {
         this.bardo.addPocao(caixa.getItem());
         System.out.printf("%s quebrou a caixa e pegou %s.%n",this.getNome(), caixa.getItem().getNome());
     }
+
+    public  void pedirBardoTocar(Bardo bardo, Boss personagem){
+        bardo.atacar(personagem);
+    };
+    public abstract void bardoPara();
 }
