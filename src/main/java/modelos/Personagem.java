@@ -1,15 +1,19 @@
-package jogo;
+package modelos;
 
-public class Personagem {
+import Personagens.Bardo;
+import Personagens.Boss;
+
+public abstract class Personagem {
     private String nome;
     private int vida;
-    private int mana;
     private Arma arma;
+    private Bardo bardo;
+    private Armadura armadura;
+
 
     public Personagem(String nome) {
         this.nome = nome;
         this.vida = 100;
-        this.mana = 100;
     }
 
     public String getNome() {
@@ -28,14 +32,6 @@ public class Personagem {
         this.vida = vida;
     }
 
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
     public Arma getArma() {
         return arma;
     }
@@ -44,13 +40,29 @@ public class Personagem {
         this.arma = arma;
     }
 
+    public void setArmadura(Armadura armadura) {
+        this.armadura = armadura;
+    }
+
+    public Armadura getArmadura() {
+        return armadura;
+    }
+
+    public Bardo getBardo() {
+        return bardo;
+    }
+
+    public void setBardo(Bardo bardo) {
+        this.bardo = bardo;
+    }
+
     public void receberDano(int dano) {
-        this.vida -= dano;
+        this.vida -= dano - armadura.getProtecao();
         System.out.printf("%s recebeu dano de %d (Vida: %d)%n",
                 this.getNome(), dano, this.getVida());
     }
 
-    public void atacar(Personagem outro) {
+    public void atacar(Boss outro) {
         if (arma == null) {
             System.out.printf("%s atacou %s com a mão%n",
                     this.getNome(), outro.getNome());
@@ -68,4 +80,14 @@ public class Personagem {
         System.out.printf("%s tomou %s e recuperou %d pontos de vida.%n",
                 this.getNome(), pocao.getNome(), pocao.getCura());
     }
+
+    public void quebrarCaixa(Caixa caixa){
+        this.bardo.addPocao(caixa.getItem());
+        System.out.printf("%s quebrou a caixa e pegou %s.%n",this.getNome(), caixa.getItem().getNome());
+    }
+
+    public  void pedirBardoTocar(Bardo bardo, Boss personagem){
+        bardo.atacar(personagem);
+    };
+    public abstract void bardoPara();
 }
